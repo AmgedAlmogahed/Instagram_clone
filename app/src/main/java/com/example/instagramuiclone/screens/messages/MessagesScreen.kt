@@ -3,7 +3,6 @@ package com.example.instagramuiclone
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,14 +10,13 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.instagramuiclone.data.MessagesDataSource
 import com.example.instagramuiclone.model.MessagesData
+import com.example.instagramuiclone.screens.components.RoundImage
+import com.example.instagramuiclone.screens.components.SearchBar
 import com.example.instagramuiclone.screens.messages.MessagesViewModel
 import com.example.instagramuiclone.ui.theme.InstagramUICloneTheme
 
@@ -64,52 +62,6 @@ fun MessagesHeader(
             contentDescription = "add button"
         )
     }
-}
-
-@Composable
-fun SearchBar(modifier: Modifier = Modifier) {
-//    Card(
-//        elevation = 10.dp,
-//        modifier = modifier
-//            .fillMaxWidth()
-//            .padding(start = 15.dp, end = 15.dp, bottom = 10.dp)
-//            .height(40.dp),
-//        shape = RoundedCornerShape(25),
-//
-//        ) {
-
-    TextField(
-        value = "",
-        onValueChange = { },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 10.dp)
-            .height(40.dp)
-            .wrapContentHeight(CenterVertically),
-        textStyle = TextStyle(color = Color.White, fontSize = 18.sp),
-        leadingIcon = {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_baseline_search_24),
-                contentDescription = "search icon",
-                modifier = Modifier
-            )
-        },
-        label = {
-            Text(
-                text = "Search",
-                color = Color(0x55000000),
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 5.dp)
-            )
-        },
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = (Color(0x23757575))
-        ),
-        shape = RoundedCornerShape(15.dp)
-
-
-    )
 }
 
 @Composable

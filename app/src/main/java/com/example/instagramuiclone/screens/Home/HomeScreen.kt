@@ -25,6 +25,7 @@ import androidx.navigation.NavController
 import com.example.instagramuiclone.screens.Home.HomeViewModel
 import com.example.instagramuiclone.model.PostsData
 import com.example.instagramuiclone.model.StoryData
+import com.example.instagramuiclone.screens.components.RoundImage
 import com.example.instagramuiclone.ui.theme.InstagramUICloneTheme
 import com.example.instagramuiclone.ui.theme.LightBlue
 
@@ -271,15 +272,3 @@ fun HomePreview() {
     }
 }
 
-@Preview
-@Composable
-fun PostPreview() {
-    InstagramUICloneTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
-        ) {
-            Posts()
-        }
-    }
-}

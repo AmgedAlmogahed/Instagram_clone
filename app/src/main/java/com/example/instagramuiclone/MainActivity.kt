@@ -22,7 +22,7 @@ import com.example.instagramuiclone.model.BottomNavItem
 import com.example.instagramuiclone.screens.Add
 import com.example.instagramuiclone.screens.LoginScreen
 import com.example.instagramuiclone.screens.Notifications
-import com.example.instagramuiclone.screens.Search
+import com.example.instagramuiclone.screens.SearchScreen
 import com.example.instagramuiclone.ui.theme.InstagramUICloneTheme
 
 @ExperimentalFoundationApi
@@ -89,7 +89,7 @@ class MainActivity : ComponentActivity() {
                 HomeScreen(navController = navController)
             }
             composable("search") {
-                Search()
+                SearchScreen()
             }
             composable("add") {
                 Add()

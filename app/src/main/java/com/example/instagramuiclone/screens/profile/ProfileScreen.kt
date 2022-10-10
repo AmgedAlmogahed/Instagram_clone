@@ -2,13 +2,9 @@ package com.example.instagramuiclone
 
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -17,12 +13,8 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -33,8 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.instagramuiclone.data.ProfileDataSource.Companion.postsList
 import com.example.instagramuiclone.model.ImageWithText
+import com.example.instagramuiclone.screens.components.GridImages
+import com.example.instagramuiclone.screens.components.RoundImage
 import com.example.instagramuiclone.screens.profile.ProfileViewModel
 import com.example.instagramuiclone.ui.theme.InstagramUICloneTheme
 
@@ -80,8 +73,8 @@ fun ProfileScreen(
             selectedTabIndex = it
         }
         when (selectedTabIndex) {
-            0 -> PostSection(
-                posts = profileViewModel.profilePosts,
+            0 -> GridImages(
+                images = profileViewModel.profilePosts,
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -149,33 +142,13 @@ fun ProfileSection(
         }
         ProfileDescription(
             displayName = "Tech Head",
-            description = "10 years of coding experience\n" +
+            description = "4 years of coding experience\n" +
                     "Want to me to make you an app? Send me your email!",
             url = "https://g.dev/amgedalmogahed",
             followedBy = listOf("Abdul Rehman Khan", "Saharsh"),
             otherCount = 33
         )
     }
-}
-
-@Composable
-fun RoundImage(
-    image: Painter,
-    modifier: Modifier = Modifier
-) {
-    Image(
-        painter = image,
-        contentDescription = null,
-        modifier = modifier
-            .aspectRatio(1f, matchHeightConstraintsFirst = true)
-            .border(
-                width = 1.dp,
-                color = Color.LightGray,
-                shape = CircleShape
-            )
-            .padding(3.dp)
-            .clip(CircleShape)
-    )
 }
 
 @Composable
@@ -411,32 +384,6 @@ fun PostTabView(
     }
 }
 
-@ExperimentalFoundationApi
-@Composable
-fun PostSection(
-    posts: List<Int>,
-    modifier: Modifier = Modifier
-) {
-    LazyVerticalGrid(
-        cells = GridCells.Fixed(3),
-        modifier = modifier
-            .scale(1.01f)
-    ) {
-        items(posts.size) {
-            Image(
-                painter = painterResource(id = posts[it]),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .aspectRatio(1f)
-                    .border(
-                        width = 1.dp,
-                        color = Color.White
-                    )
-            )
-        }
-    }
-}
 
 @ExperimentalFoundationApi
 @Preview
