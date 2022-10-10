@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Instagram UI Clone</string>
+    <string name="instagram_logo">instagram logo</string>
+
+
+    //story usernames
+    <string name="my_sotry">Your Story</string>
+    <string name="yutta">Yutta</string>
+    <string name="aadesh">Aadesh</string>
+    <string name="akshay">Akshay</string>
+    <string name="saharsh">Saharsh</string>
+    <string name="title_activity_add">Add</string>
+
+</resources>
